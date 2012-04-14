@@ -19,7 +19,8 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java.protocols;
+package com.plter.lib.as3.sector.protocols{
+	
 
 /**
  * 部门经理
@@ -33,14 +34,14 @@ public interface IManager {
 	 * 取得经理的名称
 	 * @return
 	 */
-	public String getName();
+	function getName():String;
 
 	
 	/**
 	 * 取得所代理的部门
 	 * @return
 	 */
-	public ISector getSector();
+	function getSector():ISector;
 	
 	
 	/**
@@ -48,7 +49,7 @@ public interface IManager {
 	 * @param message 消息
 	 * @return 如果消息成功发送(所有职能部门都成功执行了消息)，则返回true,否则返回false
 	 */
-	public boolean sendMessage(IMessage message);
+	function sendMessage(message:IMessage):Boolean;
 	
 	
 	/**
@@ -56,11 +57,8 @@ public interface IManager {
 	 * @param command	命令
 	 * @return	如果命令成功发送(所有职能部门都成功执行了命令)，则返回true,否则返回false
 	 */
-	public boolean sendCommand(ICommand command);
-	public boolean sendCommand(String commandName);
-	public boolean sendCommand(String commandName,Object content);
-	public boolean sendCommand(String commandName,int level);
-	public boolean sendCommand(String commandName,Object content,int level);
+	function sendCommand(command:ICommand):Boolean;
+	function sendCommand1(commandName:String,content:Object=null,level:int=0):Boolean;
 	
 	
 	/**
@@ -68,11 +66,8 @@ public interface IManager {
 	 * @param event	事件
 	 * @return	如果事件成功派发，返回true，否则返回false
 	 */
-	public boolean dispatchEvent(IEvent event);
-	public boolean dispatchEvent(String eventName);
-	public boolean dispatchEvent(String eventName,Object content);
-	public boolean dispatchEvent(String eventName,Object content,int level);
-	public boolean dispatchEvent(String eventName,int level);
+	function dispatchEvent(event:IEvent):Boolean;
+	function dispatchEvent1(eventName:String,content:Object=null,level:int=0):Boolean;
 	
 	
 	/**
@@ -80,14 +75,14 @@ public interface IManager {
 	 * @param command
 	 * @return
 	 */
-	public boolean handleCommand(ICommand command);
+	function handleCommand(command:ICommand):Boolean;
 	
 	/**
 	 * 处理事件，如果该方法返回值为false，则事件不会发送
 	 * @param event
 	 * @return
 	 */
-	public boolean handleEvent(IEvent event);
+	function handleEvent(event:IEvent):Boolean;
 	
 	
 	/**
@@ -95,13 +90,15 @@ public interface IManager {
 	 * @param message
 	 * @return
 	 */
-	public boolean handleMessage(IMessage message);
+	function handleMessage(message:IMessage):Boolean;
 	
 	
 	/**
 	 * 取得所管理的组件对象
 	 * @return
 	 */
-	public Object getComponent();
+	function getComponent():Object;
 	
+}
+
 }

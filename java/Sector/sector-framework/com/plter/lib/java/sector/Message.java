@@ -1,6 +1,6 @@
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
-import com.plter.lib.android.sector.java.protocols.IMessage;
+import com.plter.lib.java.sector.protocols.IMessage;
 
 /**
  * 消息类

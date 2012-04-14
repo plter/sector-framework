@@ -19,11 +19,11 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
-import com.plter.lib.android.sector.java.protocols.ICommand;
-import com.plter.lib.android.sector.java.protocols.IFunction;
-import com.plter.lib.android.sector.java.protocols.ISector;
+import com.plter.lib.java.sector.protocols.ICommand;
+import com.plter.lib.java.sector.protocols.IFunction;
+import com.plter.lib.java.sector.protocols.ISector;
 
 
 /**
@@ -35,21 +35,21 @@ public class Function implements IFunction {
 	
 	/**
 	 * 创建一个职能对象
-	 * @param name			职能名称
-	 * @param messageName	该职能接受的消息的名称
+	 * @param commandName	职能名称
+	 * @param name			该职能接受的消息的名称
 	 */
-	public Function(String name,String messageName) {
+	public Function(String commandName,String name) {
 		this.name=name;
-		this.messageName=messageName;
+		this.messageName=commandName;
 	}
 	
 	
 	/**
 	 * 创建一个职能对象
-	 * @param messageName	该职能所接受的消息的名称
+	 * @param commandName	该职能所接受的消息的名称
 	 */
-	public Function(String messageName) {
-		this.messageName=messageName;
+	public Function(String commandName) {
+		this.messageName=commandName;
 	}
 	
 
@@ -59,7 +59,7 @@ public class Function implements IFunction {
 	}
 
 	@Override
-	public String getMessageName() {
+	public String getCommandName() {
 		return messageName;
 	}
 

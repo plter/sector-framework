@@ -1,6 +1,6 @@
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
-import com.plter.lib.android.sector.java.protocols.IEvent;
+import com.plter.lib.java.sector.protocols.IEvent;
 
 
 /**

@@ -19,33 +19,27 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java.protocols;
+package com.plter.lib.as3.sector{
+
+import com.plter.lib.as3.sector.protocols.ICommand;
+
 
 
 /**
- * 消息
+ * 命令
  * @author xtiqin
  *
  */
-public interface IMessage {
+public class Command extends Message implements ICommand{
 
 	/**
-	 * 取得消息的名称
-	 * @return
+	 * 构建一个命令
+	 * @param name		命令的名称
+	 * @param content	命令的内容
+	 * @param level		命令的级别
 	 */
-	public String getName();
-	
-	
-	/**
-	 * 取得消息附加的的内容
-	 * @return
-	 */
-	public Object getContent();
-	
-	
-	/**
-	 * 取得消息的级别，部门(Sector)可以在handleCommand方法中根据级别选择性的允许消息通过
-	 * @return
-	 */
-	public int getLevel();
+	public function Command(name:String, content:Object=null, level:int=0) {
+		super(name, content, level);
+	}
+}
 }

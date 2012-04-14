@@ -19,9 +19,9 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
-import com.plter.lib.android.sector.java.protocols.ICommand;
+import com.plter.lib.java.sector.protocols.ICommand;
 
 
 

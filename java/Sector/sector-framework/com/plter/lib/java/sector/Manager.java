@@ -19,13 +19,13 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
-import com.plter.lib.android.sector.java.protocols.ICommand;
-import com.plter.lib.android.sector.java.protocols.IEvent;
-import com.plter.lib.android.sector.java.protocols.IMessage;
-import com.plter.lib.android.sector.java.protocols.IManager;
-import com.plter.lib.android.sector.java.protocols.ISector;
+import com.plter.lib.java.sector.protocols.ICommand;
+import com.plter.lib.java.sector.protocols.IEvent;
+import com.plter.lib.java.sector.protocols.IManager;
+import com.plter.lib.java.sector.protocols.IMessage;
+import com.plter.lib.java.sector.protocols.ISector;
 
 
 /**

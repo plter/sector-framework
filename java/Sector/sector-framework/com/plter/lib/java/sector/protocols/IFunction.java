@@ -19,7 +19,7 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java.protocols;
+package com.plter.lib.java.sector.protocols;
 
 
 /**
@@ -40,7 +40,7 @@ public interface IFunction {
 	 * 取得职能接受的命令名称
 	 * @return	命令名称
 	 */
-	public String getMessageName();
+	public String getCommandName();
 	
 	
 	/**

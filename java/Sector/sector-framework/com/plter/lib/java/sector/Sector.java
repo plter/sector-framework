@@ -19,17 +19,17 @@
 	https://github.com/xtiqin/plter-android-lib
  */
 
-package com.plter.lib.android.sector.java;
+package com.plter.lib.java.sector;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.plter.lib.android.sector.java.protocols.ICommand;
-import com.plter.lib.android.sector.java.protocols.IEvent;
-import com.plter.lib.android.sector.java.protocols.IMessage;
-import com.plter.lib.android.sector.java.protocols.IFunction;
-import com.plter.lib.android.sector.java.protocols.IManager;
-import com.plter.lib.android.sector.java.protocols.ISector;
+import com.plter.lib.java.sector.protocols.ICommand;
+import com.plter.lib.java.sector.protocols.IEvent;
+import com.plter.lib.java.sector.protocols.IFunction;
+import com.plter.lib.java.sector.protocols.IManager;
+import com.plter.lib.java.sector.protocols.IMessage;
+import com.plter.lib.java.sector.protocols.ISector;
 
 
 /**
@@ -168,7 +168,7 @@ public class Sector implements ISector {
 			if (message instanceof ICommand) {
 				for (int i = 0; i < getFunctions().size(); i++) {
 					f=getFunctions().get(i);
-					if (message.getName().equals(f.getMessageName())) {
+					if (message.getName().equals(f.getCommandName())) {
 						if (!f.execute((ICommand) message)) {
 							suc=false;
 						}
