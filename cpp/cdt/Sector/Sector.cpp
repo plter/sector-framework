@@ -12,6 +12,8 @@ Sector::Sector(string name,Manager* manager):Object() {
 	_name = name;
 	_resultAdapter = new EventListenerList();
 	_commandAdapter = new EventListenerList();
+    
+    _manager = NULL;
 	setManager(manager);
 }
 
