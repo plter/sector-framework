@@ -1,17 +1,12 @@
 /*
  * Event.cpp
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 
 #include "Event.h"
 
 namespace plter {
-
-Event::Event():Object() {
-	setData(NULL);
-}
 
 Event::Event(string type):Object(){
 	setType(type);

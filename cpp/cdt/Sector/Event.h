@@ -1,7 +1,6 @@
 /*
  * Event.h
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 
@@ -18,7 +17,6 @@ namespace plter {
 
 class Event :public Object{
 public:
-	Event();
 	Event(string type);
 	Event(string type,Object* data);
 	Event(Object* data);

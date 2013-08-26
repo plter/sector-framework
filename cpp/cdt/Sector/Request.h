@@ -1,7 +1,6 @@
 /*
  * Request.h
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 
@@ -14,7 +13,6 @@ namespace plter {
 
 class Request: public plter::Event {
 public:
-	Request();
 	Request(string type);
 	Request(string type,Object* data);
 	virtual ~Request();

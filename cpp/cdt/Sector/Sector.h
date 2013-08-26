@@ -1,7 +1,6 @@
 /*
  * Sector.h
  *
- *  Created on: 2013?8?25?
  *      Author: plter
  */
 
@@ -19,6 +18,7 @@
 #include "Request.h"
 #include "Command.h"
 #include "Result.h"
+#include "Callback.h"
 
 
 using namespace std;
@@ -50,6 +50,9 @@ public:
 	virtual void addFunction(Function* f);
 	virtual Function* removeFunction(Function* f);
 	virtual Function* removeFunction(string name);
+	virtual void addCallback(Callback* cb);
+	virtual Callback* removeCallback(Callback* cb);
+	virtual Callback* removeCallback(string name);
 
 private:
 	string _name;

@@ -1,7 +1,6 @@
 /*
  * Command.h
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 
@@ -19,7 +18,6 @@ namespace plter {
 
 class Command: public plter::Event {
 public:
-	Command();
 	Command(string type);
 	Command(string type,Object* data);
 	virtual ~Command();

@@ -9,7 +9,8 @@ OBJS =	Command.o \
 		Result.o \
 		Sector.o \
 		Manager.o \
-		Object.o 
+		Object.o \
+		Callback.o  
 
 LIBS =
 

@@ -1,7 +1,6 @@
 /*
  * Sector.cpp
  *
- *  Created on: 2013?8?25?
  *      Author: plter
  */
 
@@ -200,6 +199,19 @@ bool Sector::_sendRequest(Request* req) {
 
 Sector* Sector::getParent() {
 	return _parent;
+}
+
+
+void Sector::addCallback(Callback* cb) {
+	_resultAdapter->addListener((EventListener*)cb);
+}
+
+Callback* Sector::removeCallback(Callback* cb) {
+	return (Callback*)_resultAdapter->removeListener((EventListener*)cb);
+}
+
+Callback* Sector::removeCallback(string name) {
+	return (Callback*)_resultAdapter->removeListener(name);
 }
 
 } /* namespace plter */

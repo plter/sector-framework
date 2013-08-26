@@ -56,11 +56,11 @@ int main(void) {
 	MyFunc* f = new MyFunc("MyFunc");
 	s->addFunction(f);
 
-	Command* cmd = new Command();
+	Command* cmd = new Command("MyFunc");
 	s->sendCommand(cmd);
 	cmd->release();
 
-	Request* req = new Request();
+	Request* req = new Request("");
 	s->sendRequest(req);
 	req->release();
 

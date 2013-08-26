@@ -1,7 +1,6 @@
 /*
  * Manager.h
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 

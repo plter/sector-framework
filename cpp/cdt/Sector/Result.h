@@ -1,7 +1,6 @@
 /*
  * Result.h
  *
- *  Created on: 2013年8月25日
  *      Author: plter
  */
 
@@ -14,7 +13,6 @@ namespace plter {
 
 class Result: public plter::Event {
 public:
-	Result();
 	Result(string type);
 	Result(string type,Object* data);
 	virtual ~Result();

@@ -1,7 +1,6 @@
 /*
  * Object.h
  *
- *  Created on: 2013年8月26日
  *      Author: plter
  */
 
