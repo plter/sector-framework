@@ -19,7 +19,6 @@ Request::Request(string type, Object* data):Event(type,data) {
 }
 
 Request::~Request() {
-	// TODO Auto-generated destructor stub
 }
 
 } /* namespace plter */

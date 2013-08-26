@@ -22,7 +22,7 @@ public:
 	EventListener();
 	EventListener(string name);
 	virtual string getName();
-	virtual bool execute(Event* e,void* target);
+	virtual bool execute(Event* e,Object* target);
 	virtual ~EventListener();
 
 private:

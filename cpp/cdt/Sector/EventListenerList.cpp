@@ -38,7 +38,7 @@ EventListener* EventListenerList::removeListener(EventListener* el){
 	return NULL;
 }
 
-bool EventListenerList::dispatch(Event* e,void* target){
+bool EventListenerList::dispatch(Event* e,Object* target){
 	bool suc = true;
 	for(vector<EventListener*>::iterator it = _els.begin();it!=_els.end();++it){
 		if (!((EventListener*)(*it))->execute(e,target)) {

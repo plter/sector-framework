@@ -16,7 +16,7 @@ EventListener::EventListener(string name):Object(){
 	_name = name;
 }
 
-bool EventListener::execute(Event* e,void* target){
+bool EventListener::execute(Event* e,Object* target){
 	return true;
 }
 

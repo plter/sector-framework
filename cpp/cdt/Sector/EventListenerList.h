@@ -24,7 +24,7 @@ public:
 	virtual EventListener* removeListener(EventListener* el);
 	virtual EventListener* removeListener(string name);
 	virtual bool dispatch(Event* e);
-	virtual bool dispatch(Event* e,void* target);
+	virtual bool dispatch(Event* e,Object* target);
 	virtual ~EventListenerList();
 
 private:
