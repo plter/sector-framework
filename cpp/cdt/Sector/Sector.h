@@ -9,15 +9,59 @@
 #define SECTOR_H_
 
 
-#include "EventListenerList.h"
+#include <string>
+#include <vector>
 
+#include "EventListenerList.h"
+#include "Manager.h"
+#include "Object.h"
+#include "Function.h"
+#include "Request.h"
+#include "Command.h"
+#include "Result.h"
+
+
+using namespace std;
 
 namespace plter {
+class Manager;
+class Function;
+class Request;
+class Result;
+class Command;
 
-class Sector :private EventListenerList{
+
+class Sector :public Object{
 public:
-	Sector();
+	Sector(string name,Manager* manager);
 	virtual ~Sector();
+
+	virtual string getName();
+	virtual void addChild(Sector* s);
+	virtual void removeChild(Sector* s);
+	virtual void removeChild(string sectorName);
+	virtual Sector* getChild(string name);
+	virtual Sector* getParent();
+	virtual void setManager(Manager* manager);
+	virtual bool sendRequest(Request* req);
+	virtual bool sendCommand(Command* cmd);
+	virtual bool sendResult(Result* result);
+	virtual Manager* getManager();
+	virtual void addFunction(Function* f);
+	virtual Function* removeFunction(Function* f);
+	virtual Function* removeFunction(string name);
+
+private:
+	string _name;
+	Manager* _manager;
+	vector<Sector*> _children;
+	Sector* _parent;
+	EventListenerList* _commandAdapter;
+	EventListenerList* _resultAdapter;
+
+	virtual void tryToRemoveCurrentManager();
+	virtual void setParent(Sector* p);
+	virtual bool _sendRequest(Request* req);
 };
 
 } /* namespace plter */

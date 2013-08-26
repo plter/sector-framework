@@ -9,9 +9,7 @@
 
 namespace plter {
 
-Function::Function() {
-	// TODO Auto-generated constructor stub
-
+Function::Function(string name):EventListener(name) {
 }
 
 Function::~Function() {

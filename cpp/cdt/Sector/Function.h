@@ -14,7 +14,7 @@ namespace plter {
 
 class Function: public plter::EventListener {
 public:
-	Function();
+	Function(string name);
 	virtual ~Function();
 };
 

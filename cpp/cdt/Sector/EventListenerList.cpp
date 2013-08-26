@@ -9,9 +9,7 @@
 
 namespace plter {
 
-EventListenerList::EventListenerList() {
-	// TODO Auto-generated constructor stub
-
+EventListenerList::EventListenerList():Object() {
 }
 
 
@@ -20,14 +18,24 @@ EventListener* EventListenerList::addListener(EventListener* el){
 	return el;
 }
 
+EventListener* EventListenerList::removeListener(string name) {
+	for(vector<EventListener*>::iterator it = _els.begin();it!=_els.end();++it){
+		if (((EventListener*)(*it))->getName().compare(name)==0) {
+			_els.erase(it);
+			return *it;
+		}
+	}
+	return NULL;
+}
+
 EventListener* EventListenerList::removeListener(EventListener* el){
 	for(vector<EventListener*>::iterator it = _els.begin();it!=_els.end();++it){
 		if (el==*it) {
 			_els.erase(it);
-			break;
+			return el;
 		}
 	}
-	return el;
+	return NULL;
 }
 
 bool EventListenerList::dispatch(Event* e,void* target){

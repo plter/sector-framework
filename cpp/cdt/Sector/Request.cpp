@@ -9,9 +9,13 @@
 
 namespace plter {
 
-Request::Request() {
-	// TODO Auto-generated constructor stub
+Request::Request():Event() {
+}
 
+Request::Request(string type) :Event(type){
+}
+
+Request::Request(string type, Object* data):Event(type,data) {
 }
 
 Request::~Request() {

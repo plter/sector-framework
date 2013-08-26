@@ -7,14 +7,16 @@ OBJS =	Command.o \
 		Function.o \
 		Request.o \
 		Result.o \
-		Sector.o 
+		Sector.o \
+		Manager.o \
+		Object.o 
 
 LIBS =
 
-TARGET =	libSector.a
+TARGET =	./bin/libSector.a
 
 $(TARGET):	$(OBJS)
-	ar -crv ./bin/$(TARGET) $(OBJS) 
+	ar -crv $(TARGET) $(OBJS) 
 
 all:	$(TARGET)
 

@@ -9,13 +9,16 @@
 
 namespace plter {
 
-Command::Command() {
-	// TODO Auto-generated constructor stub
+Command::Command() :Event(){
+}
 
+Command::Command(string type):Event(type) {
+}
+
+Command::Command(string type, Object* data):Event(type,data) {
 }
 
 Command::~Command() {
-	// TODO Auto-generated destructor stub
 }
 
 } /* namespace plter */

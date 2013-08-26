@@ -11,16 +11,18 @@
 #include "EventListener.h"
 #include "Event.h"
 #include <vector>
+#include "Object.h"
 
 using namespace std;
 
 namespace plter {
 
-class EventListenerList {
+class EventListenerList:public Object {
 public:
 	EventListenerList();
 	virtual EventListener* addListener(EventListener* el);
 	virtual EventListener* removeListener(EventListener* el);
+	virtual EventListener* removeListener(string name);
 	virtual bool dispatch(Event* e);
 	virtual bool dispatch(Event* e,void* target);
 	virtual ~EventListenerList();

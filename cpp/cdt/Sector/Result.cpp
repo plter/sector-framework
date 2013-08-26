@@ -9,9 +9,13 @@
 
 namespace plter {
 
-Result::Result() {
-	// TODO Auto-generated constructor stub
+Result::Result() :Event(){
+}
 
+Result::Result(string type):Event(type) {
+}
+
+Result::Result(string type, Object* data):Event(type,data) {
 }
 
 Result::~Result() {

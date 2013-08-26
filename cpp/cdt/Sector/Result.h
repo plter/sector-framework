@@ -15,6 +15,8 @@ namespace plter {
 class Result: public plter::Event {
 public:
 	Result();
+	Result(string type);
+	Result(string type,Object* data);
 	virtual ~Result();
 };
 

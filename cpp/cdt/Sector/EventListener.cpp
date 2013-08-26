@@ -9,10 +9,21 @@
 
 namespace plter {
 
-EventListener::EventListener() {
-	// TODO Auto-generated constructor stub
-
+EventListener::EventListener():Object() {
 }
+
+EventListener::EventListener(string name):Object(){
+	_name = name;
+}
+
+bool EventListener::execute(Event* e,void* target){
+	return true;
+}
+
+string EventListener::getName(){
+	return _name;
+}
+
 
 EventListener::~EventListener() {
 	// TODO Auto-generated destructor stub

@@ -9,12 +9,19 @@
 #define COMMAND_H_
 
 #include "Event.h"
+#include <string>
+#include "Object.h"
+
+using namespace std;
+
 
 namespace plter {
 
 class Command: public plter::Event {
 public:
 	Command();
+	Command(string type);
+	Command(string type,Object* data);
 	virtual ~Command();
 };
 
