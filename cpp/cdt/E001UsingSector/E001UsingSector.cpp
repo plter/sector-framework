@@ -20,12 +20,9 @@
 using namespace plter;
 using namespace std;
 
-
-
 class MyManager:public Manager{
 public:
-	MyManager():Manager("mgr",NULL){
-
+	MyManager():Manager("mgr"){
 	};
 
 	virtual bool handleRequest(Request* req){
@@ -38,7 +35,7 @@ public:
 class MyFunc:public Function{
 
 public:
-	MyFunc(string name):Function(name){
+	MyFunc(Sector* s):Function("MyFunc",s){
 	};
 
 	virtual bool execute(Event* cmd,Object* data){
@@ -53,7 +50,7 @@ int main(void) {
 	MyManager * mgr = new MyManager();
 
 	Sector* s = new Sector("root",mgr);
-	MyFunc* f = new MyFunc("MyFunc");
+	MyFunc* f = new MyFunc(s);
 	s->addFunction(f);
 
 	Command* cmd = new Command("MyFunc");
