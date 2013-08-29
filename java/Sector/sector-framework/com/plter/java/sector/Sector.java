@@ -1,5 +1,6 @@
 package com.plter.java.sector;
 
+import com.plter.lib.java.event.EventListener;
 import com.plter.lib.java.event.EventListenerList;
 import com.plter.lib.java.lang.Array;
 import com.plter.lib.java.lang.ArrayItem;
@@ -41,47 +42,82 @@ public class Sector {
 		});
 	}
 	
+	public void addFunction(EventListener<Command> func){
+		commandAdapter.add(func);
+	}
 	
+	public void removeFunction(EventListener<Command> func){
+		commandAdapter.remove(func);
+	}
+	
+	public void removeFunction(String funcName){
+		commandAdapter.remove(funcName);
+	}
+
+	public void addCallback(EventListener<Result> cb){
+		resultAdapter.add(cb);
+	}
+	
+	public void removeCallback(EventListener<Result> cb){
+		resultAdapter.remove(cb);
+	}
+	
+	public void removeCallback(String cbName){
+		resultAdapter.remove(cbName);
+	}
+	
+	public void sendResult(Result result){
+		_sendResult(result, null, true);
+	}
+
 	public void sendCommand(Command cmd){
 		_sendCommandExcept(cmd, null);
 	}
-	
+
 	public void sendRequest(Request req){
 		_handleRequestExceptCommandListener(req, null);
 	}
-	
+
 
 	public void setManager(Manager manager) {
+		if (this.manager!=null) {
+			this.manager.setSector(null);
+		}
+		
 		this.manager = manager;
+		
+		if (this.manager!=null) {
+			this.manager.setSector(this);
+		}
 	}
 
 	public Manager getManager() {
 		return manager;
 	}
-	
+
 	private void _handleRequestExceptCommandListener(final Request req,final Sector sector){
 		if (getManager()==null||getManager().handleRequest(req)) {
 			Command cmd = ObjectPool.get(Command.class);
 			cmd.init(req.getName(), req.getData());
-			
+
 			sendCommand(cmd);
-			
+
 			if (getManager()==null||getManager().reportToSuperior()) {
 				if (getSuperior()!=null) {
 					getSuperior()._handleRequestExceptCommandListener(req, this);
 				}
 			}
-			
+
 			cmd.recycle();
 		}
 	}
-	
+
 	private void _sendCommandExcept(final Command cmd,final Sector sector){
-		
+
 		commandAdapter.dispatch(cmd);
-		
+
 		sectors.each(new ArrayLoopCallback<Sector>() {
-			
+
 			@Override
 			public void onRead(Sector currentValue, ArrayItem<Sector> currentItem) {
 				if (currentValue!=sector) {
@@ -90,27 +126,35 @@ public class Sector {
 			}
 		});
 	}
-	
-	private void _sendResultExcept(final Result result,final Sector sector){
+
+	private void _sendResult(final Result result,final Sector exceptedChild,boolean sendToSuperior){
 		resultAdapter.dispatch(result);
-		
+
 		sectors.each(new ArrayLoopCallback<Sector>() {
-			
+
 			@Override
 			public void onRead(Sector currentValue, ArrayItem<Sector> currentItem) {
-				currentValue.resultAdapter.dispatch(result);
+				if (currentValue!=exceptedChild) {
+					currentValue._sendResult(result, null, false);
+				}
 			}
 		});
+
+		if (sendToSuperior) {
+			if (getSuperior()!=null) {
+				getSuperior()._sendResult(result, this, true);
+			}
+		}
 	}
 
 	public Sector getSuperior() {
 		return superior;
 	}
-	
+
 	private void setSuperior(Sector superior) {
 		this.superior = superior;
 	}
-	
+
 
 	private String name = null;
 	private Manager manager = null;

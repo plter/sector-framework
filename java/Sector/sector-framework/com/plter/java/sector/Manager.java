@@ -14,6 +14,26 @@ public class Manager {
 		return true;
 	}
 	
+	
+	public void sendCommand(Command cmd){
+		if (getSector()!=null) {
+			getSector().sendCommand(cmd);
+		}
+	}
+	
+	public void sendResult(Result result){
+		if (getSector()!=null) {
+			getSector().sendResult(result);
+		}
+	}
+	
+	public void sendRequest(Request req){
+		if (getSector()!=null) {
+			getSector().sendRequest(req);
+		}
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
