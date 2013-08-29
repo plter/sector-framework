@@ -15,7 +15,12 @@ class Request: public plter::Event {
 public:
 	Request(string type);
 	Request(string type,Object* data);
+	Request(string type,Object* data,int level);
+	virtual int getLevel();
 	virtual ~Request();
+
+private:
+	int _level;
 };
 
 } /* namespace plter */
