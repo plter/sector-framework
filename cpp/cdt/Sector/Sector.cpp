@@ -153,7 +153,7 @@ bool Sector::sendCommand(Command* cmd) {
 }
 
 bool Sector::sendResult(Result* result) {
-	return _sendResultExcept(result,NULL);
+	return _sendResult(result,NULL,true);
 }
 
 Sector* Sector::getSuperior() {
@@ -195,30 +195,47 @@ bool Sector::_sendCommandExcept(Command* cmd, Sector* except) {
 	return suc;
 }
 
-bool Sector::_sendResultExcept(Result* result, Sector* except) {
-	bool suc = true;
+bool Sector::_tryToSendResultToSelf(Result* result) {
+	return _resultAdapter->dispatch(result);
+}
 
+bool Sector::_tryToSendResultToSuperior(Result* result) {
+	if (getSuperior()!=NULL) {
+		return getSuperior()->_resultAdapter->dispatch(result);
+	}
+	return true;
+}
+
+bool Sector::_tryToSendResultToChildren(Result* result, Sector* except) {
+	bool suc = true;
 	Sector* tmp;
 	for(vector<Sector*>::iterator it = _children.begin();it!=_children.end();++it){
 		tmp = *it;
 		if (tmp!=except) {
-			if (!tmp->sendResult(result)) {
+			if (!tmp->_sendResult(result,NULL,false)) {
 				suc = false;
 			}
 		}
 	}
 	tmp=NULL;
+	return suc;
+}
 
-	if (!_resultAdapter->dispatch((Event*)result)) {
+bool Sector::_sendResult(Result* result, Sector* exceptedChild,bool sendToSuperior) {
+	bool suc = true;
+	if (!_tryToSendResultToChildren(result,exceptedChild)) {
 		suc = false;
 	}
-
-	if (_superior!=NULL) {
-		if (!_superior->_sendResultExcept(result,this)) {
-			suc = false;
+	if (!_tryToSendResultToSelf(result)) {
+		suc = false;
+	}
+	if (sendToSuperior) {
+		if (getSuperior()!=NULL) {
+			if(!getSuperior()->_sendResult(result,this,true)){
+				suc = false;
+			}
 		}
 	}
-
 	return suc;
 }
 
@@ -240,5 +257,6 @@ bool Sector::_handleRequestExceptCommandListener(Request* req,Sector* except) {
 	}
 	return suc;
 }
+
 
 } /* namespace plter */

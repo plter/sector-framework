@@ -66,7 +66,10 @@ private:
 	virtual void setSuperior(Sector* p);
 	virtual bool _handleRequestExceptCommandListener(Request* req,Sector* except);
 	virtual bool _sendCommandExcept(Command* cmd,Sector* except);
-	virtual bool _sendResultExcept(Result* result,Sector* except);
+	virtual bool _sendResult(Result* result,Sector* exceptedChild,bool sendToSuperior);
+	virtual bool _tryToSendResultToSelf(Result* result);
+	virtual bool _tryToSendResultToSuperior(Result* result);
+	virtual bool _tryToSendResultToChildren(Result* result,Sector* except);
 };
 
 } /* namespace plter */
