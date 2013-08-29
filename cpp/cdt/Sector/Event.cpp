@@ -8,16 +8,16 @@
 
 namespace plter {
 
-Event::Event(string type):Object(){
-	setType(type);
+Event::Event(string name):Object(){
+	setName(name);
     
     _data = NULL;
 }
 
-Event::Event(string type,Object* data):Object(){
+Event::Event(string name,Object* data):Object(){
     _data = NULL;
     
-	setType(type);
+	setName(name);
 	setData(data);
 }
 
@@ -25,8 +25,8 @@ Event::Event(Object* data):Object(){
 	setData(data);
 }
 
-string Event::getType(){
-	return _type;
+string Event::getName(){
+	return _name;
 }
 
 Object* Event::getData(){
@@ -50,8 +50,8 @@ Event::~Event() {
 	}
 }
 
-void Event::setType(string type) {
-	_type = type;
+void Event::setName(string name) {
+	_name = name;
 }
 
 } /* namespace plter */

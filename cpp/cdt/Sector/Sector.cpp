@@ -225,7 +225,7 @@ bool Sector::_sendResultExcept(Result* result, Sector* except) {
 bool Sector::_handleRequestExceptCommandListener(Request* req,Sector* except) {
 	bool suc = true;
 	if (getManager()==NULL||getManager()->handleRequest(req)) {
-		Command* cmd = new Command(req->getType(),req->getData());
+		Command* cmd = new Command(req->getName(),req->getData());
 		if(!_sendCommandExcept(cmd,except)){
 			suc=false;
 		}
