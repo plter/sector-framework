@@ -17,6 +17,7 @@ namespace plter {
 
 class Event :public Object{
 public:
+	Event();
 	Event(string type);
 	Event(string type,Object* data);
 	Event(Object* data);

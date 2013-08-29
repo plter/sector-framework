@@ -50,6 +50,7 @@ bool EventListenerList::dispatch(Event* e,Object* target){
 	for(vector<EventListener*>::iterator it = _els.begin();it!=_els.end();++it){
 		tmp = *it;
 		if (tmp->getName().compare("")==0||
+				e->getName().compare("")==0||
 				tmp->getName().compare(e->getName())==0){
 
 			if (!tmp->execute(e,target)) {

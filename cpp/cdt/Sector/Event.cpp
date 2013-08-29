@@ -8,6 +8,11 @@
 
 namespace plter {
 
+Event::Event():Object() {
+	_data = NULL;
+	_name = "";
+}
+
 Event::Event(string name):Object(){
 	setName(name);
     
@@ -23,6 +28,8 @@ Event::Event(string name,Object* data):Object(){
 
 Event::Event(Object* data):Object(){
 	setData(data);
+
+	_name = "";
 }
 
 string Event::getName(){
@@ -55,3 +62,4 @@ void Event::setName(string name) {
 }
 
 } /* namespace plter */
+
