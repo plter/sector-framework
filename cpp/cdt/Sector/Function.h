@@ -9,6 +9,8 @@
 
 #include "EventListener.h"
 #include "Sector.h"
+#include "Event.h"
+
 
 namespace plter {
     class Sector;
@@ -17,7 +19,8 @@ namespace plter {
     public:
         Function(string name,Sector* sector);
         virtual ~Function();
-        
+        virtual bool execute(Event* e,Object* target);
+		virtual bool execute(Event* e);
         virtual Sector* getSector();
         
     private:

@@ -12,6 +12,14 @@ namespace plter {
         _sector = sector;
         _sector->retain();
     }
+
+	bool Function::execute(Event* e,Object* target){
+		return execute(e);
+	}
+
+	bool Function::execute(Event* e){
+		return true;
+	}
     
     Function::~Function() {
         _sector->release();
