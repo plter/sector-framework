@@ -121,7 +121,7 @@ public class Sector {
 			@Override
 			public void onRead(Sector currentValue, ArrayItem<Sector> currentItem) {
 				if (currentValue!=sector) {
-					sector.sendCommand(cmd);
+					currentValue.sendCommand(cmd);
 				}
 			}
 		});
