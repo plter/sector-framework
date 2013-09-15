@@ -5,7 +5,6 @@ import com.plter.lib.java.event.EventListenerList;
 import com.plter.lib.java.lang.Array;
 import com.plter.lib.java.lang.ArrayItem;
 import com.plter.lib.java.lang.ArrayLoopCallback;
-import com.plter.lib.java.lang.ObjectPool;
 
 public class Sector {
 
@@ -97,8 +96,7 @@ public class Sector {
 
 	private void _handleRequestExceptCommandListener(final Request req,final Sector sector){
 		if (getManager()==null||getManager().handleRequest(req)) {
-			Command cmd = ObjectPool.get(Command.class);
-			cmd.init(req.getName(), req.getData());
+			Command cmd = new Command(req.getName(), req.getData());
 
 			sendCommand(cmd);
 
@@ -107,8 +105,6 @@ public class Sector {
 					getSuperior()._handleRequestExceptCommandListener(req, this);
 				}
 			}
-
-			cmd.recycle();
 		}
 	}
 
