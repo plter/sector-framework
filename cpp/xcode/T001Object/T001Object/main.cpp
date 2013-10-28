@@ -8,9 +8,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <Event.h>
-#include <Function.h>
 #include <iostream>
+#include <SectorFramework.h>
 
 using namespace plter;
 

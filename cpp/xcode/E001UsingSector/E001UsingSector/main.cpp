@@ -8,14 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <Sector.h>
-#include <Function.h>
 #include <iostream>
-#include <Object.h>
 #include <string>
-#include <Command.h>
-#include <Manager.h>
-#include <Request.h>
+#include <SectorFramework.h>
 
 using namespace plter;
 using namespace std;

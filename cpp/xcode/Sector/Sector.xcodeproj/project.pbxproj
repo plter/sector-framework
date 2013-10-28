@@ -55,6 +55,7 @@
 		318DAFFE181E5EFD00FF3C08 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		318DAFFF181E5EFD00FF3C08 /* Sector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sector.cpp; sourceTree = "<group>"; };
 		318DB000181E5EFD00FF3C08 /* Sector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sector.h; sourceTree = "<group>"; };
+		318DB062181E6E4900FF3C08 /* SectorFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorFramework.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 				318DAFFE181E5EFD00FF3C08 /* Result.h */,
 				318DAFFF181E5EFD00FF3C08 /* Sector.cpp */,
 				318DB000181E5EFD00FF3C08 /* Sector.h */,
+				318DB062181E6E4900FF3C08 /* SectorFramework.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
